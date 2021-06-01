@@ -1,11 +1,11 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic
+FROM ubuntu:20.04 
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 ARG UNIFI_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="aptalca"
+LABEL maintainer="rchenzheng"
 
 # environment settings
 ARG UNIFI_BRANCH="stable"
@@ -15,6 +15,7 @@ RUN \
  echo "**** install packages ****" && \
  apt-get update && \
  apt-get install -y \
+	curl \
 	binutils \
 	jsvc \
 	libcap2 \
